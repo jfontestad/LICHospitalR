@@ -1,0 +1,47 @@
+---
+title: "Getting Started with LICHospitalR"
+subtlte: Data Analysis and Workflow
+author: "Steven P. Sanderson II, MPH"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true 
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Getting Started with LICHospitalR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 4.5,
+  fig.align = 'center',
+  out.width = '95%',
+  dpi = 100
+)
+```
+
+> LICHospitalR: A toolkit for working with hospital data in R
+
+The data landscape at the hospital is vast, deep, and complex causing many inconsistencies in data attributes and formats ultimately making it difficult to analyze.
+
+The `LICHospitalR` package provides tools that solve these issues.
+
+* __DB Data Functions__: `coded_consults_query` is one such function that fixes this issue.
+* __Plot Functions__: `coded_consults_trend_plt`, `coded_consults_top_plt` are some functions that render plots easily and in expected fashion.
+
+This vignette includes a brief case study on getting data on and plotting out coded consults.
+
+# Prerequisites
+
+To get started with LICHospitalR you need to install the library from is source
+or binary file.
+
+Once it is installed you can call the library from within R like so:
+```{r setup}
+library(LICHospitalR)
+```

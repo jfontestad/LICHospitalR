@@ -1,0 +1,132 @@
+---
+title: "Getting Length of Stay and Readmit Index with LICHospitalR"
+subtitle: Data Analysis and Workflow
+author: "Steven P. Sanderson II, MPH"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Getting Length of Stay and Readmit Index with LICHospitalR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 8,
+  fig.height = 4.5,
+  fig.align = 'center',
+  out.width = '95%',
+  dpi = 100
+)
+```
+
+> LICHospitalR: A toolkit for working with hospital data in R
+
+# Working with LOS & Readmit Index Data
+
+## Getting the data
+
+In this vignette I will discuss how to obtian data on the Length of Stay and Readmit Rate Index from DSS. This data comes from a variety of sources that are put together inside of easy to use and understand functions.
+
+First to get started, load in the `LICHospitalR` library package into your R session:
+
+```{r setup}
+library(LICHospitalR)
+```
+
+### Get data by automated query
+
+Once the package is loaded in, you can then get started getting data from DSS and analyzing it. The first piece of code that you will use in order to get data is the function `los_ra_index_query()`. This function relies on a connection to DSS using the `db_connect()` and `db_disconnect()` functions that make `odbc()` calls out to DSS. This requires that the end user be able to make such a connection from their local desktop machine. This is typically done by having a connection file on your machine. You must have privleges set by the IS department with an appropriate SAR.
+
+Now lets see an example of getting the data, we will then `glimpse()` the data in order to see what fields are returned and what their types are. This will require us to load the `dplyr` library as well.
+
+```{r los_ra_index_query}
+library(dplyr)
+
+los_ra_index_query() %>%
+  glimpse()
+```
+
+You will notice that no arguments were passed to this function. The data for this query starts on Jan 1, 2013. If you want to filter the data by time then you should use the `timetk::filter_by_time()` function. You can do that using either the column `adm_date` or `dsch_date` like so:
+
+```{r filter_by_time}
+library(dplyr)
+library(timetk)
+
+los_ra_index_query() %>%
+  filter_by_time(
+    .date_var     = dsch_date
+    , .start_date = "2019-01-01"
+    , .end_date   = "2020-01-01"
+  ) %>%
+  glimpse()
+  
+```
+
+It is important to note that you can leave either of the parameters empty by simply not entering the argument into the function.
+
+## Summary Table
+
+The data can be auto summarized if desired by length of stay group. This portion of the function is currently hard coded at 15 days as a max but will be modified in the future to allow a max date to be input into the function. It is intended that the summary function be used in conjuntion with the index query function to properly form the expected workflow.
+
+Lets take a look:
+```{r summary_tbl}
+library(dplyr)
+
+los_ra_index_query() %>%
+  los_ra_index_summary_tbl()
+```
+
+Remember we can also filter the data:
+```{r summary_tbl_filter}
+library(dplyr)
+library(timetk)
+
+los_ra_index_query() %>%
+  filter_by_time(
+    .date_var     = dsch_date
+    , .start_date = "2019-01-01"
+    , .end_date   = "2020-01-01"
+  ) %>%
+  los_ra_index_summary_tbl()
+  
+```
+
+## Plotting the data
+
+Now it can be useful to see the data, often data tables can be hard to ready or to see where the opportunities/costs are, this is where vizualization comes in handy. There is a function `los_ra_index_plt` that is meant to fit inside this work flow to help vizualize where we perform best in terms of length of stay and readmission. 
+
+Lets see an example:
+
+```{r index_plt}
+library(dplyr)     # To manipulate
+library(ggplot2)   # To Plot data
+library(tidyquant) # For Theme
+
+los_ra_index_query() %>%
+  los_ra_index_summary_tbl() %>%
+  los_ra_index_plt()
+
+```
+
+Or time filtered:
+```{r index_plt_filtered}
+library(dplyr)     # To Manipulate 
+library(timetk)    # To filter on time
+library(ggplot2)   # To Plot Data
+library(tidyquant) # Theme
+
+los_ra_index_query() %>%
+  filter_by_time(.date_var = dsch_date, .start_date = "2019-01-01", .end_date = "2020-01-01") %>%
+  los_ra_index_summary_tbl() %>%
+  los_ra_index_plt()
+```
+
+The best part of this work flow? Done in at most four lines of code

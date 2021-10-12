@@ -1,0 +1,84 @@
+---
+title: "Time Series with LICHospitalR"
+subtitle: Data Analysis and Workflow
+author: "Steven P. Sanderson II, MPH"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Time Series with LICHospitalR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 4.5,
+  fig.align = 'center',
+  out.width = '95%',
+  dpi = 100
+)
+```
+
+> LICHospitalR: A toolkit for working with hospital data in R
+
+# Working with Excess Readmit Rates
+
+## Getting the data
+
+In this vignette I will discuss how to obtain data on excess readmit rates from DSS.
+
+First to get started, load in the `LICHospitalR` library package into your R session:
+
+```{r setup}
+library(LICHospitalR)
+```
+
+
+### Get data by automated query
+
+Once the package is loaded in, you can then start getting data from DSS and analyzing it. The first piece of code that you will use in order to get data from DSS is the function `ts_readmit_excess_query()`. This function relies on a connection to DSS using the `db_connect()` function that makes an `odbc()` call out to DSS. This requires that the end user be able to make such a connection from their local desktop machine. This is typically done by having a connection file on your machine. You would normally find a connection file in the sample path here: `C:\Users\bh_number_here\Documents\My Data Sources`. If you are having difficulties please file a help-desk ticket with Information Services.
+
+Now lets see an example of getting the data, we will then `glimpse()` the data in order to see what fields are returned and what their types are. This will require us to load the `dplyr` library as well.
+
+```{r readmit_excess_query}
+suppressPackageStartupMessages(library(dplyr))
+
+ts_readmit_excess_query() %>%
+  glimpse()
+```
+
+You will notice that this required nothing but a simple function call brings back the data starting from April 1st, 2016 as this is the date that the start of APR-DRG data is available for this purpose. The data also comes back properly formatted for further use.
+
+Now lets take a look at this data summarised by time. We can do this by using the `ts_readmit_excess_tbl()` table function.
+
+By Month:
+
+```{r readmit_excess_month_tbl}
+ts_readmit_excess_query() %>%
+  ts_readmit_excess_tbl(.date_col = dsch_date, .by_time = "month")
+```
+
+By Week:
+
+```{r readmit_excess_week_tbl}
+ts_readmit_excess_query() %>%
+  ts_readmit_excess_tbl(.date_col = dsch_date, .by_time = "week")
+```
+
+We see that we can with ease change the time period with the `ts_readmit_excess_tbl` by simply choosing things like year, month, or week for the `.by_time` parameter.
+
+Now lets simply plot the excess value.
+
+```{r readmit_excess_plt}
+suppressPackageStartupMessages(library(healthyR))
+
+ts_readmit_excess_query() %>%
+  ts_readmit_excess_tbl(.date_col = dsch_date, .by_time = "month") %>%
+  ts_plt(.date_col = date_col, .value_col = value, .interactive = TRUE)
+```

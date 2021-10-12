@@ -1,0 +1,117 @@
+---
+title: "Getting Coded Consults with LICHospitalR"
+subtitle: Data Analysis and Workflow
+author: "Steven P. Sanderson II, MPH"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Getting Coded Consults with LICHospitalR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 8,
+  fig.height = 4.5,
+  fig.align = 'center',
+  out.width = '95%',
+  dpi = 100
+)
+```
+
+> LICHospitalR: A toolkit for working with hospital data in R
+
+# Working with Coded Consults
+
+## Getting the data
+
+In this vignette I will discuss how to obtain data on coded consults from DSS. The coded consults come from the actual consults coded by the HIM department.
+
+First to get started, load in the `LICHospitalR` library package into your R session:
+
+```{r setup}
+library(LICHospitalR)
+```
+
+### Get data by automated query
+
+Once the package is loaded in, you can then get started getting data from DSS and analyzing it. The first piece of code that you will use in order to get data from DSS is the function `coded_consults_query()`. This function relies on a connection to DSS using the `db_connect()` function that makes and `odbc()` call out to DSS. This requires that the end user be able to make such a connection from their local desktop machine. This is typically done by having a connection file on your machine. You would normally find a connection file in the sample path here: `C:\Users\bh_number_here\Documents\My Data Sources`. If you are having difficulties please file a help-desk ticket with Information Services.
+
+Now lets see an example of getting the data, we will then `glimpse()` the data in order to see what fields are returned and what their types are. This will require us to load the `dplyr` library as well.
+```{r coded_consults_query}
+library(dplyr)
+
+coded_consults_query(.resp_pty = "013789") %>%
+  glimpse()
+```
+
+You will notice that the .resp_pty was filled in with a providers ID Number. You can obtain a providers id number by using the function `get_provider_id_num()`, by either providing the `.name` parameter, or by letting all results return in alpha order. This is how you would get data using the automated query `coded_consults_query()`. 
+
+### Get data by import
+
+If you do not use that function then you must import data into your R session with the data provided. You will ultimately need to get this from DSS.
+
+## Seasonal Time Series Diagnostics
+
+Many times we want to see the variation by time for a great deal of things, consults are no different. That is why I built the `coded_consults_seasonal_diagnostics()` function. This function takes a few arguments to it. Namely .data, .date_col, and .value_col. This function was designed to work directly with the `coded_consults_query()` function via the pipe operator together or by take a data table from import. 
+
+Lets take a look at an example:
+
+```{r coded_consults_seasonal_diagnostics}
+library(timetk)
+library(dplyr)
+
+coded_consults_query(.resp_pty = "013789") %>%
+  coded_consults_seasonal_diagnositcs_plt(
+    .date_col    = dsch_date
+    , .value_col = record_flag
+  )
+```
+
+## Top Attending Providers
+
+### Getting Data
+
+Now sometimes we want to see who has consulted someone the most. We can accomplish this in a single line of code using the `coded_consults_top_providers_tbl()` function. This function takes in four arguments and is meant to work with the pipe operator so that the `.data` function is not necessary to fill out. The necessary arguments after data is piped in are `.top_n`, `.attending_col`, and `.consultant_col`. All of these columns are explicitly provided from the `coded_consults_query()` function therefore helping to make a workflow efficient and tidy. 
+
+The function returns a tibble that can be analyzed by other means or used in conjuntion with other `coded` functions. Lets take a look.
+
+```{r coded_consults_top_providers}
+library(dplyr)
+
+coded_consults_query(.resp_pty = "013789") %>%
+  coded_consults_top_providers_tbl(
+    .top_n = 10
+    , .attending_col = attending_md
+    , .consultant_col = consultant
+  )
+```
+
+### Plotting Data
+
+As we can see from the resulting code, the top 10 Attending providers ranked in order by how many times they have consulted the provider in question is returned, where n is the number of times the consultant was coded as having been consulted by the attending.
+
+We can extend this workflow further by plotting this same information out. The only parameter this function takes is `.data` which can be piped in as we will see.
+
+```{r coded_consults_top_plt}
+library(dplyr)
+library(ggplot2)
+
+coded_consults_query(.resp_pty = "013789") %>%
+  coded_consults_top_providers_tbl(
+    .top_n = 10
+    , .attending_col = attending_md
+    , .consultant_col = consultant
+  ) %>%
+  coded_consults_top_plt()
+```
+
+The best part of this, is that it was accomplished using three lines of code.
