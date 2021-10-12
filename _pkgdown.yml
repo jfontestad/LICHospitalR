@@ -1,0 +1,80 @@
+template:
+  params:
+    bootswatch: flatly
+
+navbar:
+  title: "LICHospitalR"
+  left:
+    - icon: "fa-home"
+      href: index.html
+    - text: "Documentation"
+      href: articles/index.html
+      menu:
+        - text: 'Workflows'
+        - text: "Getting Started"
+          href: articles/getting-started.html
+        - text: "Coded Consults Workflow"
+          href: articles/coded-consults.html
+        - text: "LOS vs. Readmit Index Comparison Workflow"
+          href: articles/los-ra-index.html
+        - text: "Time Series Analysis"
+          href: articles/timeseries.html
+    - text: "Function Reference"
+      href: reference/index.html
+    - text: "News"
+      href: news/index.html
+
+reference:
+  - title: Automations
+    desc: __Automation Functions__
+  - subtitle: Automations
+    contents:
+    -  contains("automation")
+  - title: Queries
+    desc: __DSS Queries__
+  - subtitle: Queries for DSS
+    contents:
+    -  contains("query")
+  - title: DSS Connection Files
+    desc: __Connection functions for DSS__
+  - subtitle: Connection Functions
+    contents:
+    -  contains("db_connect")
+    -  contains("db_disconnect")
+  - title: Plots
+    desc: __Plotting functions__
+  - subtitle: Plots
+    contents:
+    -  contains("plt")
+  - subtitle: Binning
+    contents:
+    -  contains("opt_bin")
+  - title: Control Charts
+    desc: __Functions to create Control Charts__
+  - subtitle: Control Chart Functions and Plot
+    contents:
+    -  contains("ts_qc_")
+  - title: Table Data
+    desc: __Functions that return data__
+  - subtitle: Table data
+    contents:
+    -  contains("_tbl")
+  - title: SQL String Functions
+    desc: __Manipulate Text with SQL like functions__
+  - subtitle: Function List
+    contents:
+    -  contains("sql_")
+  - title: ML/AI Algos
+    desc: __Machine Learning and AI Algorithms__
+  - subtitle: Function List
+    contents:
+    -  "kmeans_mapped_tbl"
+    -  "kmeans_tidy"
+    -  "oppe_cpoe_kmeans"
+    -  "oppe_cpoe_umap"
+  - title: Miscellaneous
+    desc: Miscellaneous Functions and Utilities
+  - subtitle: Function List
+    contents:
+    -  "named_item_list"
+    -  "save_to_excel"

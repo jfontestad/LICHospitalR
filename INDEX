@@ -1,0 +1,155 @@
+code64_automation       Code 64 Email Automation
+code64_charged_accounts_query
+                        Code 64 Charged Accounts
+coded_consults_query    OPPE Coded Consults Query
+coded_consults_seasonal_diagnositcs_plt
+                        OPPE Coded Consults Seasonal Diagnostics
+coded_consults_top_plt
+                        OPPE Plot of top N Attending
+coded_consults_top_providers_tbl
+                        OPPE Coded Consults Top Attending
+coded_consults_trend_plt
+                        OPPE Coded Consults Trend Plot
+congenital_malformation_automation
+                        Congenital Malformation Automation for HIM
+congenital_malformation_query
+                        Congenital Malformations Query for HIM
+db_connect              DSS DB Connection Function
+db_disconnect           DSS DB Disconnect Function
+denials_admits_by_ed_query
+                        Denials Admits by ED
+denials_admits_by_md_query
+                        Denials Admits by MD
+denials_inpatient_query
+                        Denials by Inpatients
+denials_outpatient_query
+                        Denials by Outpatient
+discharge_order_to_discharge_automation
+                        Discharge Order to Discharge Automation
+discharge_order_to_discharge_query
+                        Discharge Order to Discharge Date Time Query
+duplicate_coded_cataract_query
+                        Duplicate Coded Cataracts Query for HIM
+duplicate_coded_cataracts_automation
+                        Duplicate Coded Cataracts Query
+geocode_discharges_automation
+                        Automatically Geocode Addresses
+geocode_discharges_query
+                        Get Address for discharges that can be geocoded
+infection_prevention_patient_days_automation
+                        Patient Days for Infection Prevention
+                        Automation
+infection_prevention_patient_days_query
+                        Patient Days for Infection Prevention Query
+infection_prevention_patient_days_tbl
+                        Patient Days for Infection Prevention Tibble
+inpatient_coding_lag_automation
+                        Inpatient Coding Lag Automation
+inpatient_coding_lag_query
+                        Inpatient Coding Lag Query for HIM
+inpatient_coding_lag_tbl
+                        Inpatient Coding Lag tibble
+kmeans_mapped_tbl       OPPE CPOE K-Means Mapper
+kmeans_scree_plt        OPPE CPOE K-Means Scree Plot
+kmeans_tidy             K-Means tidy Functions
+los_ra_index_plt        Plot LOS and Readmit Index with Variance
+los_ra_index_query      Get LOS and Readmit Index Query
+los_ra_index_summary_tbl
+                        Make LOS and Readmit Index Summary Tibble
+monthly_admit_trauma_query
+                        Monthly Admit Trauma File Query
+monthly_discharge_trauma_query
+                        Monthly Discharge Trauma File Query
+monthly_psy_admits_discharges_automation
+                        Monthly PSY Admit and Discharge Automation
+monthly_psy_admits_discharges_tbl
+                        Monthly PSY Admit/Discharge tibble
+monthly_psy_admits_query
+                        Monthly PSY Admits Query
+monthly_psy_discharges_query
+                        Monthly PSY Discharges Query
+monthly_trauma_automation
+                        Monthly Trauma Automation
+monthly_trauma_tbl      Monthly Trauma Tibble
+myhealth_monthly_surgery_automation
+                        MyHealth Monthly Surgery Automation
+myhealth_monthly_surgery_query
+                        MyHealth Monthly Surgery File
+myhealth_monthly_surgery_tbl
+                        MyHealth Monthly Surgery Tibble
+named_item_list         Named list from a grouped tibble
+oppe_alos_plt           OPPE ALOS Plots
+oppe_alos_query         OPPE ALOS Query
+oppe_alos_tbl           OPPE ALOS Tibble
+oppe_cpoe_cluster_trends_tbl
+                        OPPE CPOE Cluster Trends Table
+oppe_cpoe_kmeans        OPPE CPOE K-Means
+oppe_cpoe_query         OPPE CPOE Query
+oppe_cpoe_tbl           OPPE CPOE Detail Tibble
+oppe_cpoe_trend_tbl     OPPE CPOE Provider Order Trend Table
+oppe_cpoe_umap          OPPE CPOE UMAP Projection
+oppe_cpoe_umap_plt      OPPE CPOE K-Means UMAP Projection Plot
+oppe_cpoe_user_item_tbl
+                        OPPE CPOE K-Means
+oppe_denials_detail_query
+                        OPPE Denials Detail Query
+oppe_readmit_query      OPPE Readmit Query
+opt_bin                 Get the optimal bin width for a histogram given
+                        a data set, its value and the desired amount of
+                        bins
+orsos_j_accounts_automation
+                        ORSOS J Accounts Automation
+orsos_j_accounts_query
+                        ORSOS J Accounts Query
+orsos_to_sproc_automation
+                        ORSOS to SPROC Case Reconcilliation Automation
+orsos_to_sproc_query    ORSOS to SPROC Case Reconcilliation Query
+orsos_to_sproc_tbl      ORSOS to SPROC Tibble
+pract_dim_v_query       Get practice dimension view with ID Number and
+                        Name
+qec_cdi_automation      CDI QEC Numbers
+qec_cdi_query           Get CDI QEC Numbers from DSS
+readmit_psy_to_psy_automation
+                        Readmit Psyh To Psyc Automation
+readmit_psy_to_psy_query
+                        Psych to Psych Readmit Query
+readmit_psy_to_psy_tbl
+                        Readmit Psych To Psych Tibble
+respiratory_vae_automation
+                        Respiratory VAE Automation
+respiratory_vae_query   Respiratory VAE Query
+respiratory_vae_tbl     Respiratory VAE Tibble
+save_to_excel           Save a file to Excel
+sql_left                Use SQL LEFT type function in R
+sql_mid                 Use SQL SUBSTRING() or Excel MID() type
+                        function in R
+sql_right               Use SQL RIGHT type function in R
+ts_alos_elos_query      Time Series - ALOS/ELOS Query
+ts_alos_elos_tbl        Time Series - ALOS/ELOS Excess Tibble
+ts_calendar_heatmap_plt
+                        Time Series Calendar Heatmap
+ts_ed_arrivals_query    Time Series - ER Arrivals Query
+ts_ed_arrivals_tbl      Time Series - ED Arrivals Tibble
+ts_ip_census_los_daily_query
+                        Time Series - Inpatient Census/LOS by Day
+ts_ip_census_los_daily_tbl
+                        Time Series - Inpatient Census/LOS by Day
+                        Tibble
+ts_ip_discharges_query
+                        Time Series - Inpatient Discharges Query
+ts_ip_discharges_tbl    Time Series - Inpatient Discharges Tibble
+ts_ma_plt               Time Series Moving Average Plot
+ts_median_excess_plt    Create a plot showing the excess +/- of the
+                        median value
+ts_op_visits_query      Time Series - Outpatient Visits Query
+ts_op_visits_tbl        Time Series - ED Arrivals Tibble
+ts_qc_range             Time Series Range
+ts_readmit_excess_query
+                        Time Series - Readmission Excess Query
+ts_readmit_excess_tbl   Time Series - Monthly Readmission Excess Tibble
+ts_ymwdh_tbl            Make a tibble with year, month, week, week day
+                        and hour information added
+weekly_psy_discharges_automation
+                        Weekly PSY Discharges Automation
+weekly_psy_discharges_query
+                        Weekly PSY Discharges Query
