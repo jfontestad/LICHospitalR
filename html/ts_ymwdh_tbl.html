@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Make a tibble with year, month, week, week day and hour...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ts_ymwdh_tbl {LICHospitalR}"><tr><td>ts_ymwdh_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Make a tibble with year, month, week, week day and hour information added</h2>
+
+<h3>Description</h3>
+
+<p>Returns a tibble that has year, month, week, week day and hour added from a date column
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ts_ymwdh_tbl(.data, .date_col)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that is being analyzed, data must be a tibble/data.frame</p>
+</td></tr>
+<tr valign="top"><td><code>.date_col</code></td>
+<td>
+<p>The column of the tibble that holds the date</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Supply data with a date column and this will add the year, month, week, week day and hour
+to the tibble. The original date column is kept.
+</p>
+</li>
+<li><p> Returns a tibble.
+</p>
+</li>
+<li><p> You must know the data going into the function and if certain columns
+should be dropped or kept when using further functions
+</p>
+</li>
+<li><p> Future work - Add boolean for pad_by_time to fill in missing time series information
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(timetk)
+library(dplyr)
+library(lubridate)
+ts_ymwdh_tbl(
+  .data = m4_daily
+  , .date_col = date
+)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

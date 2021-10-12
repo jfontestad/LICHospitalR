@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a plot showing the excess +/- of the median value</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ts_median_excess_plt {LICHospitalR}"><tr><td>ts_median_excess_plt {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a plot showing the excess +/- of the median value</h2>
+
+<h3>Description</h3>
+
+<p>Plot out the excess +/- of the median value grouped by certain time parameters
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ts_median_excess_plt(
+  .data,
+  .date_col,
+  .value_col,
+  .x_axis,
+  .ggplot_group_var,
+  .years_back
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that is being analyzed, data must be a tibble/data.frame</p>
+</td></tr>
+<tr valign="top"><td><code>.date_col</code></td>
+<td>
+<p>The column of the tibble that holds the date</p>
+</td></tr>
+<tr valign="top"><td><code>.value_col</code></td>
+<td>
+<p>The column that holds the value of interest</p>
+</td></tr>
+<tr valign="top"><td><code>.x_axis</code></td>
+<td>
+<p>What is the be the x-axis, day, week, etc.</p>
+</td></tr>
+<tr valign="top"><td><code>.ggplot_group_var</code></td>
+<td>
+<p>The variable to group the ggplot on</p>
+</td></tr>
+<tr valign="top"><td><code>.years_back</code></td>
+<td>
+<p>How many yeas back do you want to go in order to compute
+the median value</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Supply data that you want to view and you will see the excess +/- of the median values
+over a specified time series tibble
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A ggplot2 plot
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(timetk)
+library(dplyr)
+library(lubridate)
+
+ts_ymwdh_tbl(
+  .data = m4_daily
+  , .date_col = date
+) %&gt;%
+ts_median_excess_plt(
+  .date_col = date
+  , .value_col = value
+  , .x_axis = wk
+  , .ggplot_group_var = yr
+  , .years_back = 5
+)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

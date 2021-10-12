@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE Readmit Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_readmit_query {LICHospitalR}"><tr><td>oppe_readmit_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE Readmit Query</h2>
+
+<h3>Description</h3>
+
+<p>Get the readmit rate data from DSS in order to run the OPPE report.
+The data in this report goes back 18 months and the dates are set dynamically in
+the sql.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_readmit_query()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS, uses both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li>
+<li><p> Has start and end dates set dynamically to look back on data to ensure it has
+gone through the coding process.
+</p>
+</li>
+<li><p> The fields that come back are:
+</p>
+
+<ul>
+<li><p> med_rec_no
+</p>
+</li>
+<li><p> ptno_num
+</p>
+</li>
+<li><p> adm_date
+</p>
+</li>
+<li><p> dsch_date
+</p>
+</li>
+<li><p> payor_category
+</p>
+</li>
+<li><p> atn_dr_no
+</p>
+</li>
+<li><p> med_staff_dept
+</p>
+</li>
+<li><p> lihn_svc_line
+</p>
+</li>
+<li><p> severity_of_illness
+</p>
+</li>
+<li><p> dsch_yr
+</p>
+</li>
+<li><p> dsch_qtr
+</p>
+</li>
+<li><p> dsch_month
+</p>
+</li>
+<li><p> dsch_week
+</p>
+</li>
+<li><p> dsch_day
+</p>
+</li>
+<li><p> dsch_day_name
+</p>
+</li>
+<li><p> rpt_month
+</p>
+</li>
+<li><p> rpt_qtr
+</p>
+</li>
+<li><p> dsch_disp
+</p>
+</li>
+<li><p> dsch_disp_desc
+</p>
+</li>
+<li><p> drg_no
+</p>
+</li>
+<li><p> drg_cost_weight
+</p>
+</li>
+<li><p> hospitalist_private
+</p>
+</li>
+<li><p> hospitalist_private_flag
+</p>
+</li>
+<li><p> los
+</p>
+</li>
+<li><p> interim
+</p>
+</li>
+<li><p> pt_count
+</p>
+</li>
+<li><p> readmit_count
+</p>
+</li>
+<li><p> bench_yr
+</p>
+</li>
+<li><p> readmit_rate_bench
+</p>
+</li>
+<li><p> ward_cd
+</p>
+</li>
+<li><p> z_score
+</p>
+</li>
+<li><p> pract_rpt_name
+</p>
+</li></ul>
+
+</li>
+<li><p> The tables that are used are:
+</p>
+
+<ul>
+<li><p> smsdss.c_readmit_dashboard_detail_tbl
+</p>
+</li>
+<li><p> smsdss.c_readmit_dashboard_bench_tbl
+</p>
+</li>
+<li><p> smsmir.vst_rpt
+</p>
+</li></ul>
+
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble object
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(dplyr)
+
+oppe_readmit_query() %&gt;%
+glimpse()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

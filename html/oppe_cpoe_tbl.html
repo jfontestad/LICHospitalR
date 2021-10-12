@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE CPOE Detail Tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_cpoe_tbl {LICHospitalR}"><tr><td>oppe_cpoe_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE CPOE Detail Tibble</h2>
+
+<h3>Description</h3>
+
+<p>Get the CPOE Detail data for use in CPOE for a specified provider.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_cpoe_tbl(.data, .provider_id, .provider_name)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data to be passed into the tibble function, should be the results
+from <code><a href="../../LICHospitalR/help/oppe_cpoe_query.html">oppe_cpoe_query()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.provider_id</code></td>
+<td>
+<p>The provider id number you are looking for</p>
+</td></tr>
+<tr valign="top"><td><code>.provider_name</code></td>
+<td>
+<p>If you do not know the providers id, then you can use their name
+to get a match. You can also use the <code><a href="../../LICHospitalR/help/pract_dim_v_query.html">pract_dim_v_query()</a></code> to find the id number
+before using this function, or you can use it inside of the id number parameter. Be
+careful with this approach as providers can have the same last name. It is better to
+use the function on it's own and select the appropriate id number.
+Uses <code><a href="../../stringr/help/case.html">stringr::str_to_lower()</a></code> so that you can use all lower case letters to
+describe the name you are looking for.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS, uses both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl()
+
+oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl(.provider_id = "009142")
+
+oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl(.provider_name = "rakesh")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

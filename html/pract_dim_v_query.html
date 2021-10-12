@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get practice dimension view with ID Number and Name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for pract_dim_v_query {LICHospitalR}"><tr><td>pract_dim_v_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get practice dimension view with ID Number and Name</h2>
+
+<h3>Description</h3>
+
+<p>Get data from the smsdss.pract_dim_v view in DSS
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+pract_dim_v_query(.name)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.name</code></td>
+<td>
+<p>Can be null in order to return all providers</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS
+</p>
+</li>
+<li><p> Uses the <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> function
+</p>
+</li>
+<li><p> Data comes back sorted in order of Name
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble of provider ID Numbers, Names, Med Staff Department, and Specialty
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(DBI)
+library(dplyr)
+library(tibble)
+library(janitor)
+library(data.table)
+
+pract_dim_v_query()
+
+pract_dim_v_query(.name = "Abadi")
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE Plot of top N Attending</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for coded_consults_top_plt {LICHospitalR}"><tr><td>coded_consults_top_plt {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE Plot of top N Attending</h2>
+
+<h3>Description</h3>
+
+<p>Plot out the results from the coded_consults_top_providers function
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+coded_consults_top_plt(.data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data provided the coded_consults_top_providers function</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Gives a ggplot2 plot of the top_n attending providers from the coded_consults_top_providers
+function
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A ggplot plot
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(janitor)
+library(dplyr)
+library(tibble)
+library(DBI)
+library(odbc)
+library(lubridate)
+library(timetk)
+library(tidyquant)
+library(ggplot2)
+coded_consults_query(.resp_pty = "013128") %&gt;%
+  coded_consults_top_providers_tbl(
+    .top_n          = 10,
+    .attending_col  = attending_md,
+    .consultant_col = consultant
+  ) %&gt;%
+  coded_consults_top_plt()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Monthly Trauma Tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for monthly_trauma_tbl {LICHospitalR}"><tr><td>monthly_trauma_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Monthly Trauma Tibble</h2>
+
+<h3>Description</h3>
+
+<p>Takes data from the queries
+</p>
+
+<ol>
+<li> <p><code><a href="../../LICHospitalR/help/monthly_admit_trauma_query.html">monthly_admit_trauma_query()</a></code>, and
+</p>
+</li>
+<li> <p><code><a href="../../LICHospitalR/help/monthly_discharge_trauma_query.html">monthly_discharge_trauma_query()</a></code>
+And then performs the necessary transformations on them to get them into one
+excel file with two sheets. One for Admits and one for Discharges.
+</p>
+</li></ol>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+monthly_trauma_tbl()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ol>
+<li><p> Internally gets data from <code><a href="../../LICHospitalR/help/monthly_admit_trauma_query.html">monthly_admit_trauma_query()</a></code>
+</p>
+</li>
+<li><p> Internally gets data from <code><a href="../../LICHospitalR/help/monthly_discharge_trauma_query.html">monthly_discharge_trauma_query()</a></code>
+</p>
+</li>
+<li><p> Transforms them into one excel file with two sheets that can be
+written out to disk
+</p>
+</li></ol>
+
+
+
+<h3>Value</h3>
+
+<p>A java pointer to an excel workbook (or a list in the future)
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+monthly_trauma_tbl()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

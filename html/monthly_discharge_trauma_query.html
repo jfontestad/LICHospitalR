@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Monthly Discharge Trauma File Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for monthly_discharge_trauma_query {LICHospitalR}"><tr><td>monthly_discharge_trauma_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Monthly Discharge Trauma File Query</h2>
+
+<h3>Description</h3>
+
+<p>This query is used to grab all possible Trauma related accounts. There are two
+queries that are run, one for accounts by admit_date and one for accounts
+by discharge_date.
+</p>
+<p>There are no parameters to this function as of yet, it may be introduced in the
+future if there is a strong need for it. The dates are set dynamically in the
+SQL so that data is always run for the previous third month in which the query is run.
+For example if the query is run in any day of November 2020 then the data will
+be pulled for August of 2020
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+monthly_discharge_trauma_query()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Need a valid DSS connection and rights to query.
+</p>
+</li>
+<li><p> Utilizes both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code> functions
+</p>
+</li>
+<li><p> Returns data as a tibble
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+monthly_discharge_trauma_query()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

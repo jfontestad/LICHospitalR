@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE Coded Consults Top Attending</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for coded_consults_top_providers_tbl {LICHospitalR}"><tr><td>coded_consults_top_providers_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE Coded Consults Top Attending</h2>
+
+<h3>Description</h3>
+
+<p>Gets the top n attending providers who have consulted the consultant in question.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+coded_consults_top_providers_tbl(
+  .data,
+  .top_n,
+  .attending_col,
+  .consultant_col
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that you provided. There must be an Attending column and Consultant column</p>
+</td></tr>
+<tr valign="top"><td><code>.top_n</code></td>
+<td>
+<p>How many of the top attending providers do you want returned.</p>
+</td></tr>
+<tr valign="top"><td><code>.attending_col</code></td>
+<td>
+<p>The column that holds the name of the attending provider</p>
+</td></tr>
+<tr valign="top"><td><code>.consultant_col</code></td>
+<td>
+<p>The column that holds the name of the consulting provider(s)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Get the top n attending providers and counts of times they consulted the specialist
+provider in question.
+</p>
+</li>
+<li><p> This gets data from either DSS by using the <code><a href="../../LICHospitalR/help/coded_consults_query.html">coded_consults_query()</a></code> or an
+imported file.
+</p>
+</li></ul>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(dplyr)
+library(tibble)
+coded_consults_top_providers_tbl(
+.data = coded_consults_query(.resp_pty = "013128")
+, .top_n = 10
+, .attending_col = attending_md
+, .consultant_col = consultant
+)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE ALOS Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_alos_query {LICHospitalR}"><tr><td>oppe_alos_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE ALOS Query</h2>
+
+<h3>Description</h3>
+
+<p>Get the average length of stay data from DSS in order to run the OPPE report.
+The data in this report goes back 18 months and the dates are set dynamically in
+the sql.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_alos_query()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS, uses both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li>
+<li><p> Has start and end dates set dynamically to look back on data to ensure it has
+gone through the coding process.
+</p>
+</li>
+<li><p> The fields that come back are:
+</p>
+
+<ul>
+<li><p> pt_id
+</p>
+</li>
+<li><p> ptno_num
+</p>
+</li>
+<li><p> dsch_date
+</p>
+</li>
+<li><p> dsch_yr
+</p>
+</li>
+<li><p> dsch_month
+</p>
+</li>
+<li><p> atn_dr_no
+</p>
+</li>
+<li><p> atn_dr_name
+</p>
+</li>
+<li><p> drg_no
+</p>
+</li>
+<li><p> lihn_service_line
+</p>
+</li>
+<li><p> hosim
+</p>
+</li>
+<li><p> apr_drg
+</p>
+</li>
+<li><p> severity_of_illness
+</p>
+</li>
+<li><p> los
+</p>
+</li>
+<li><p> elos
+</p>
+</li>
+<li><p> threshold
+</p>
+</li>
+<li><p> outlier_flag
+</p>
+</li>
+<li><p> drg_cost_weight
+</p>
+</li>
+<li><p> pyr_grouping
+</p>
+</li>
+<li><p> case_var
+</p>
+</li>
+<li><p> case_index
+</p>
+</li>
+<li><p> index_threshold
+</p>
+</li>
+<li><p> z_score
+</p>
+</li>
+<li><p> med_staff_dept
+</p>
+</li>
+<li><p> ward_cd
+</p>
+</li></ul>
+
+</li>
+<li><p> The tables that are used are:
+</p>
+
+<ul>
+<li><p> smsdss.c_LIHN_Svc_Line_tbl
+</p>
+</li>
+<li><p> smsdss.BMH_PLM_PtAcct_V
+</p>
+</li>
+<li><p> Customer.Custom_DRG
+</p>
+</li>
+<li><p> smsdss.c_LIHN_SPARCS_BenchmarkRates
+</p>
+</li>
+<li><p> smsdss.pract_dim_v
+</p>
+</li>
+<li><p> smsdss.c_LIHN_APR_DRG_OutlierThresholds
+</p>
+</li>
+<li><p> smsdss.pyr_dim_v
+</p>
+</li>
+<li><p> smsmir.vst_rpt
+</p>
+</li></ul>
+
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble object
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(dplyr)
+
+oppe_alos_query() %&gt;%
+glimpse()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

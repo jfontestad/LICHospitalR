@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Time Series Moving Average Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ts_ma_plt {LICHospitalR}"><tr><td>ts_ma_plt {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Time Series Moving Average Plot</h2>
+
+<h3>Description</h3>
+
+<p>This function will produce two plots. Both of these are moving average plots.
+One of the plots is from <code><a href="../../xts/help/plot.xts.html">xts::plot.xts()</a></code> and the other a <code>ggplot2</code> plot. This
+is done so that the user can choose which type is best for them. The plots are
+stacked so each graph is on top of the other.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ts_ma_plt(
+  .data,
+  .date_col,
+  .value_col,
+  .ts_frequency = "monthly",
+  .main_title = NULL,
+  .secondary_title = NULL,
+  .tertiary_title = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data you want to visualize. This should be pre-processed and
+the aggregation should match the <code>.frequency</code> argument.</p>
+</td></tr>
+<tr valign="top"><td><code>.date_col</code></td>
+<td>
+<p>The data column from the <code>.data</code> argument.</p>
+</td></tr>
+<tr valign="top"><td><code>.value_col</code></td>
+<td>
+<p>The value column from the <code>.data</code> argument</p>
+</td></tr>
+<tr valign="top"><td><code>.ts_frequency</code></td>
+<td>
+<p>The frequency of the aggregation, quoted, ie. &quot;monthly&quot;, anything else
+will default to weekly, so it is very important that the data passed to this
+function be in either a weekly or monthly aggregation.</p>
+</td></tr>
+<tr valign="top"><td><code>.main_title</code></td>
+<td>
+<p>The title of the main plot.</p>
+</td></tr>
+<tr valign="top"><td><code>.secondary_title</code></td>
+<td>
+<p>The title of the second plot.</p>
+</td></tr>
+<tr valign="top"><td><code>.tertiary_title</code></td>
+<td>
+<p>The title of the third plot.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function expects to take in a data.frame/tibble. It will return
+a list object so it is a good idea to save the output to a variable and extract
+from there.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The original time series, the simulated values and a some plots
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+suppressPackageStartupMessages(library(timetk))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(tidyquant))
+suppressPackageStartupMessages(library(xts))
+suppressPackageStartupMessages(library(cowplot))
+suppressPackageStartupMessages(library(healthyR.data))
+
+data_tbl &lt;- healthyR_data %&gt;%
+  select(visit_end_date_time) %&gt;%
+  summarise_by_time(
+    .date_var = visit_end_date_time,
+    .by       = "month",
+    value     = n()
+  ) %&gt;%
+  set_names("date_col","value")
+
+ts_ma_plt(
+  .data = data_tbl,
+  .date_col = date_col,
+  .value_col = value
+)
+
+data_tbl &lt;- healthyR_data %&gt;%
+  select(visit_end_date_time) %&gt;%
+  summarise_by_time(
+    .date_var = visit_end_date_time,
+    .by = "week",
+    value = n()
+  ) %&gt;%
+  set_names("date_col","value")
+
+ts_ma_plt(
+  .data = data_tbl,
+  .date_col = date_col,
+  .value_col = value,
+  .ts_frequency = "week"
+)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

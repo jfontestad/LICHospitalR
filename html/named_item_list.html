@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Named list from a grouped tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for named_item_list {LICHospitalR}"><tr><td>named_item_list {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Named list from a grouped tibble</h2>
+
+<h3>Description</h3>
+
+<p>Takes in a data.frame/tibble and creates a named list that can be
+used in conjunction with something like <code><a href="../../LICHospitalR/help/save_to_excel.html">save_to_excel()</a></code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+named_item_list(.data, .grouping_var)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The grouped data.frame/tibble</p>
+</td></tr>
+<tr valign="top"><td><code>.grouping_var</code></td>
+<td>
+<p>The column that contains the grouping variable</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Needs a grouped data.frame/tibble
+</p>
+</li></ul>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+named_item_list(.data = df, .grouping_var = service_line)
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

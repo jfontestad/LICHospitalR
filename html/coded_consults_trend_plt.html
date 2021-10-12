@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE Coded Consults Trend Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for coded_consults_trend_plt {LICHospitalR}"><tr><td>coded_consults_trend_plt {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE Coded Consults Trend Plot</h2>
+
+<h3>Description</h3>
+
+<p>Get a plot of the trend for a spcified consultant
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+coded_consults_trend_plt(.data, .consultant_col)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that you want to trend</p>
+</td></tr>
+<tr valign="top"><td><code>.consultant_col</code></td>
+<td>
+<p>The column that holds the consultant name</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Get the trend plot for a given consultant
+</p>
+</li>
+<li><p> Data can come from the coded_consults_query function or data that is imported
+</p>
+</li>
+<li><p> Must have a consultant column
+</p>
+</li>
+<li><p> Groups data by month label, January, February, etc.
+</p>
+</li>
+<li><p> See <code><a href="../../LICHospitalR/help/coded_consults_query.html">coded_consults_query()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A ggplot2 plot
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(dplyr)
+library(tibble)
+library(ggplot2)
+coded_consults_query(.resp_pty = "013128") %&gt;%
+  coded_consults_trend_plt(.consultant_col = consultant)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

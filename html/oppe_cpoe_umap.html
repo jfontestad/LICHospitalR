@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE CPOE UMAP Projection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_cpoe_umap {LICHospitalR}"><tr><td>oppe_cpoe_umap {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE CPOE UMAP Projection</h2>
+
+<h3>Description</h3>
+
+<p>Create an umap object from the <code><a href="../../uwot/help/umap.html">uwot::umap()</a></code> function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_cpoe_umap(.data, .kmeans_map_tbl, .k_cluster = 5)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data from the <code><a href="../../LICHospitalR/help/oppe_cpoe_user_item_tbl.html">oppe_cpoe_user_item_tbl()</a></code> function</p>
+</td></tr>
+<tr valign="top"><td><code>.kmeans_map_tbl</code></td>
+<td>
+<p>The data from the <code><a href="../../LICHospitalR/help/kmeans_mapped_tbl.html">kmeans_mapped_tbl()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.k_cluster</code></td>
+<td>
+<p>Pick the desired amount of clusters from your analysis of the scree plot</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This takes in the user item table/matix that is produced by <code><a href="../../LICHospitalR/help/oppe_cpoe_user_item_tbl.html">oppe_cpoe_user_item_tbl()</a></code>
+function. This function uses the defaults of <code><a href="../../uwot/help/umap.html">uwot::umap()</a></code>
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of tibbles and the umap object
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>See Also</h3>
+
+
+<ul>
+<li> <p><a href="https://cran.r-project.org/package=uwot">https://cran.r-project.org/package=uwot</a> (CRAN)
+</p>
+</li>
+<li> <p><a href="https://github.com/jlmelville/uwot">https://github.com/jlmelville/uwot</a> (GitHub)
+</p>
+</li>
+<li> <p><a href="https://github.com/jlmelville/uwot">https://github.com/jlmelville/uwot</a> (arXiv paper)
+</p>
+</li></ul>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+ui_tbl &lt;- oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl() %&gt;%
+  oppe_cpoe_user_item_tbl()
+
+kmm_tbl &lt;- kmeans_mapped_tbl(ui_tbl)
+
+oppe_cpoe_umap(.data = ui_tbl, kmm_tbl, 3)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

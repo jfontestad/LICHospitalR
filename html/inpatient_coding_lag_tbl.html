@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Inpatient Coding Lag tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for inpatient_coding_lag_tbl {LICHospitalR}"><tr><td>inpatient_coding_lag_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Inpatient Coding Lag tibble</h2>
+
+<h3>Description</h3>
+
+<p>This function takes in the query <code><a href="../../LICHospitalR/help/inpatient_coding_lag_query.html">inpatient_coding_lag_query()</a></code> as the data
+argument and augments the data so that it can be taken into the
+<code><a href="../../LICHospitalR/help/inpatient_coding_lag_automation.html">inpatient_coding_lag_automation()</a></code> function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+inpatient_coding_lag_tbl(.data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>Data that you want to manipulate typically from <code><a href="../../LICHospitalR/help/inpatient_coding_lag_query.html">inpatient_coding_lag_query()</a></code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Takes in <code><a href="../../LICHospitalR/help/inpatient_coding_lag_query.html">inpatient_coding_lag_query()</a></code> as the data argument.
+</p>
+</li>
+<li><p> Returns a tibble that can be used in the <code><a href="../../LICHospitalR/help/inpatient_coding_lag_automation.html">inpatient_coding_lag_automation()</a></code>
+function.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(tidyverse)
+
+inpatient_coding_lag_query() %&gt;%
+  inpatient_coding_lag_tbl()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

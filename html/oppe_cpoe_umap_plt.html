@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE CPOE K-Means UMAP Projection Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_cpoe_umap_plt {LICHospitalR}"><tr><td>oppe_cpoe_umap_plt {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE CPOE K-Means UMAP Projection Plot</h2>
+
+<h3>Description</h3>
+
+<p>Using the <code>uwot</code> library we visualize the UMAP: Uniform Manifold
+Approximation and Projection for Dimension Reduction. <a href="https://arxiv.org/abs/1802.03426">https://arxiv.org/abs/1802.03426</a>
+</p>
+<p>UMAP (Uniform Manifold Approximation and Projection) is a novel manifold
+learning technique for dimension reduction. UMAP is constructed from a
+theoretical framework based in Riemannian geometry and algebraic topology.
+The result is a practical scalable algorithm that applies to real world data.
+The UMAP algorithm is competitive with t-SNE for visualization quality, and
+arguably preserves more of the global structure with superior run time
+performance. Furthermore, UMAP has no computational restrictions on embedding
+dimension, making it viable as a general purpose dimension reduction technique for machine learning.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_cpoe_umap_plt(.data, .point_size = 2)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>Takes data from the <code><a href="../../LICHospitalR/help/oppe_cpoe_umap.html">oppe_cpoe_umap()</a></code> function. You simply pass
+in the list object and it will automatically take the cluster results tibble</p>
+</td></tr>
+<tr valign="top"><td><code>.point_size</code></td>
+<td>
+<p>The size of the <code>ggplot2::geom_point()</code> size.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Requires the user item table/matrix that is output from the <code><a href="../../LICHospitalR/help/oppe_cpoe_user_item_tbl.html">oppe_cpoe_user_item_tbl()</a></code>
+function.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+ui_tbl &lt;- oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl() %&gt;%
+  oppe_cpoe_user_item_tbl()
+
+km_map_tbl &lt;- kmeans_mapped_tbl(ui_tbl)
+kmeans_scree_plt(km_map_tbl)
+
+umap_obj &lt;- oppe_cpoe_umap(ui_tbl, km_map_tbl, 3)
+
+oppe_cpoe_umap_plt(umap_obj)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

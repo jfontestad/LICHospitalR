@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: MyHealth Monthly Surgery Tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for myhealth_monthly_surgery_tbl {LICHospitalR}"><tr><td>myhealth_monthly_surgery_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>MyHealth Monthly Surgery Tibble</h2>
+
+<h3>Description</h3>
+
+<p>This takes data in from the <code><a href="../../LICHospitalR/help/myhealth_monthly_surgery_query.html">myhealth_monthly_surgery_query()</a></code> and performs the
+necessary manipulation/cleanup to get it ready to email out or use in conjuntion
+with <code><a href="../../LICHospitalR/help/save_to_excel.html">save_to_excel()</a></code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+myhealth_monthly_surgery_tbl(.data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The result of the <code><a href="../../LICHospitalR/help/myhealth_monthly_surgery_query.html">myhealth_monthly_surgery_query()</a></code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Returns a tibble
+</p>
+</li>
+<li><p> Expects data from the <code><a href="../../LICHospitalR/help/myhealth_monthly_surgery_query.html">myhealth_monthly_surgery_query()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(tidyverse)
+
+myhealth_monthly_surgery_query() %&gt;%
+  myhealth_monthly_surgery_tbl()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

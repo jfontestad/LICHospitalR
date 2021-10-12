@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Time Series - Monthly Readmission Excess Tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ts_readmit_excess_tbl {LICHospitalR}"><tr><td>ts_readmit_excess_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Time Series - Monthly Readmission Excess Tibble</h2>
+
+<h3>Description</h3>
+
+<p>This takes data from the <code><a href="../../LICHospitalR/help/ts_readmit_excess_query.html">ts_readmit_excess_query()</a></code> and makes an internal summary table using <code>timetk::summarise_by_time</code>
+with the following possible choices: &quot;year&quot;, &quot;month&quot;, &quot;week&quot;, these are checked
+inside of the function, if something else is chose an error will be thrown
+and the function will exit. It defaults to &quot;month&quot;.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ts_readmit_excess_tbl(.data, .by_time = "month", .date_col)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data passed in from <code><a href="../../LICHospitalR/help/ts_readmit_excess_query.html">ts_readmit_excess_query()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.by_time</code></td>
+<td>
+<p>The choices are &quot;year&quot;, &quot;month&quot;, &quot;week&quot;, defaults to &quot;month&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>.date_col</code></td>
+<td>
+<p>The column containing the date variable of interest</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Returns a tibble
+</p>
+</li>
+<li><p> Expects <code><a href="../../LICHospitalR/help/ts_readmit_excess_query.html">ts_readmit_excess_query()</a></code> as the data argument
+</p>
+</li>
+<li><p> Cleans the table names and selects the following columns
+</p>
+</li></ul>
+
+
+<ol>
+<li><p> dsch_date
+</p>
+</li>
+<li><p> dsch (which just equals 1 as a record column)
+</p>
+</li>
+<li><p> ra_flag
+</p>
+</li>
+<li><p> rr_bench
+</p>
+</li></ol>
+
+
+<ul>
+<li><p> dsch_date gets mutated using <code>lubridate::ymd(dsch_date)</code>
+</p>
+</li>
+<li><p> The output columns are:
+</p>
+</li></ul>
+
+
+<ol>
+<li><p> date_col
+</p>
+</li>
+<li><p> value - the excess readmit rate.
+</p>
+</li></ol>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(healthyR)
+
+data &lt;- ts_monthly_readmit_excess_query()
+
+data %&gt;%
+  ts_readmit_excess_tbl(.by_time = "year")
+
+data %&gt;%
+  ts_readmit_excess_tbl(.by_time = "month") %&gt;%
+  ts_plt(.date_col = dsch_date, .value_col = value)
+
+data %&gt;%
+  ts_readmit_excess_tbl()
+
+data %&gt;%
+  ts_readmit_excess_tbl(.by_time = "week") %&gt;%
+  save_to_excel(.file_name = "weekly_readmit_excess")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

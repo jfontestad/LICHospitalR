@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE CPOE Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_cpoe_query {LICHospitalR}"><tr><td>oppe_cpoe_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE CPOE Query</h2>
+
+<h3>Description</h3>
+
+<p>Get the CPOE data from DSS in order to run the OPPE report.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_cpoe_query(.start_date = "")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.start_date</code></td>
+<td>
+<p>The start date of the data, if null then it will bring back
+all data from the table. Uses the <code><a href="../../timetk/help/filter_by_time.html">timetk::filter_by_time()</a></code> function to filter
+the time.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS, uses both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li>
+<li><p> Has start and end dates set dynamically to look back on data to ensure it has
+gone through the coding process.
+</p>
+</li>
+<li><p> The fields that come back are:
+</p>
+
+<ul>
+<li><p> ent_ate
+</p>
+</li>
+<li><p> req_pty_cd
+</p>
+</li>
+<li><p> pract_rpt_name
+</p>
+</li>
+<li><p> spclty_desc
+</p>
+</li>
+<li><p> hospitalist_np_pa_flag
+</p>
+</li>
+<li><p> ord_type_abbr
+</p>
+</li>
+<li><p> specimen_collect
+</p>
+</li>
+<li><p> written
+</p>
+</li>
+<li><p> verbal_order
+</p>
+</li>
+<li><p> communication
+</p>
+</li>
+<li><p> specimen_redraw
+</p>
+</li>
+<li><p> cpoe
+</p>
+</li>
+<li><p> nursing_order
+</p>
+</li></ul>
+
+</li>
+<li><p> The tables that are used are:
+</p>
+
+<ul>
+<li><p> smsdss.c_CPOE_Rpt_Tbl_Rollup_v
+</p>
+</li>
+<li><p> smsdss.pract_dim_v
+</p>
+</li></ul>
+
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble object
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(dplyr)
+
+oppe_cpoe_query() %&gt;%
+glimpse()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

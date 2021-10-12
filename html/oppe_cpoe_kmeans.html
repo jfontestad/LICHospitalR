@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE CPOE K-Means</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_cpoe_kmeans {LICHospitalR}"><tr><td>oppe_cpoe_kmeans {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE CPOE K-Means</h2>
+
+<h3>Description</h3>
+
+<p>Takes the output of the <code><a href="../../LICHospitalR/help/oppe_cpoe_user_item_tbl.html">oppe_cpoe_user_item_tbl()</a></code> function and applies the
+k-means algorithm to it using <code><a href="../../stats/help/kmeans.html">stats::kmeans()</a></code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_cpoe_kmeans(.data, .centers = 5)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that gets passed from <code><a href="../../LICHospitalR/help/oppe_cpoe_user_item_tbl.html">oppe_cpoe_user_item_tbl()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.centers</code></td>
+<td>
+<p>How many initial centers to start with</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Uses the <code><a href="../../stats/help/kmeans.html">stats::kmeans()</a></code> function and creates a wrapper around it.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A stats k-means object
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl() %&gt;%
+  oppe_cpoe_user_item_tbl() %&gt;%
+  oppe_cpoe_kmeans()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

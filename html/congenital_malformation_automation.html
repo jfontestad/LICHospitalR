@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Congenital Malformation Automation for HIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for congenital_malformation_automation {LICHospitalR}"><tr><td>congenital_malformation_automation {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Congenital Malformation Automation for HIM</h2>
+
+<h3>Description</h3>
+
+<p>This automation will send information on congenital malformations that comes
+from the <code><a href="../../LICHospitalR/help/congenital_malformation_query.html">congenital_malformation_query()</a></code> to HIM
+</p>
+<p>The RDCOMClient Library must be called into the <code>namespace</code> first with any of the following
+</p>
+
+<ul>
+<li><p> library(RDCOMClient)
+</p>
+</li>
+<li><p> require(RDCOMClient)
+</p>
+</li>
+<li><p> if(!require(pacman)) install.packages(&quot;pacman&quot;)
+</p>
+</li>
+<li><p> pacman::p_load(&quot;RDCOMClient&quot;)
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+congenital_malformation_automation(.delete_file = FALSE, .email)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.delete_file</code></td>
+<td>
+<p>Default is FALSE, TRUE will delete file</p>
+</td></tr>
+<tr valign="top"><td><code>.email</code></td>
+<td>
+<p>Provide the email address for the recipient. The email must be
+in double quotes like so: <a href="mailto:c(%22person@licommunityhospital.org;person2@licommunityhospital.org%22)">c(&quot;person@licommunityhospital.org;person2@licommunityhospital.org&quot;)</a>
+using a semi-colon if there is more than one address.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Uses the <code><a href="../../LICHospitalR/help/congenital_malformation_query.html">congenital_malformation_query()</a></code> internally.
+</p>
+</li>
+<li><p> Requires a connection to DSS and uses <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(RDCOMClient)
+congenital_malformation_automation(.email= "someone@email.com")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get LOS and Readmit Index Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for los_ra_index_query {LICHospitalR}"><tr><td>los_ra_index_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get LOS and Readmit Index Query</h2>
+
+<h3>Description</h3>
+
+<p>Get the Length of Stay and Readmit data with expected performance
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+los_ra_index_query()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Gets data from DSS query
+</p>
+</li>
+<li><p> Uses <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code> functions. See documentation.
+</p>
+</li>
+<li><p> Gets
+</p>
+
+<ol>
+<li><p> Adm_Date
+</p>
+</li>
+<li><p> Dsch_Date
+</p>
+</li>
+<li><p> Encounter
+</p>
+</li>
+<li><p> LIHN_Svc_Line
+</p>
+</li>
+<li><p> ALOS
+</p>
+</li>
+<li><p> ELOS
+</p>
+</li>
+<li><p> Visit_Flag
+</p>
+</li>
+<li><p> Readmit_Flag
+</p>
+</li>
+<li><p> Readmit_Rate
+</p>
+</li></ol>
+
+</li>
+<li><p> Data Tables
+</p>
+
+<ol>
+<li><p> smsdss.bmh_plm_ptacct_v
+</p>
+</li>
+<li><p> smsdss.vReadmits
+</p>
+</li>
+<li><p> smsdss.c_elos_bench_data
+</p>
+</li>
+<li><p> smsdss.c_LIHN_Svc_Line_Tbl
+</p>
+</li>
+<li><p> Customer.Custom (APR-DRG Data)
+</p>
+</li>
+<li><p> smsdss.c_readmit_dashboard_bench_tbl
+</p>
+</li></ol>
+
+</li>
+<li><p> Filters
+</p>
+
+<ol>
+<li><p> tot_chg_amt &gt; 0
+</p>
+</li>
+<li><p> Encounter does not start with 2 or 1999
+</p>
+</li>
+<li><p> Dsch_Date &gt;= '2001-01-01'
+</p>
+</li>
+<li><p> Plm_Pt_Acct_Type = &quot;I&quot;
+</p>
+</li></ol>
+
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(DBI)
+library(odbc)
+library(dplyr)
+library(tibble)
+library(janitor)
+df_tbl &lt;- los_ra_index_query()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

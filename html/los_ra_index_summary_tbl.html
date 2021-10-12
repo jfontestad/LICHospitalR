@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Make LOS and Readmit Index Summary Tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for los_ra_index_summary_tbl {LICHospitalR}"><tr><td>los_ra_index_summary_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Make LOS and Readmit Index Summary Tibble</h2>
+
+<h3>Description</h3>
+
+<p>Create the length of stay and readmit index summary tibble
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+los_ra_index_summary_tbl(.data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data you are going to analyze from <code><a href="../../LICHospitalR/help/los_ra_index_query.html">los_ra_index_query()</a></code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Expects a tibble
+</p>
+</li>
+<li><p> Adds a year column from the Admit Date and one from Discharge Date
+</p>
+</li>
+<li><p> Uses all data to compute variance, if you want it for a particular time frame
+you will have to filter the data from <code><a href="../../LICHospitalR/help/los_ra_index_query.html">los_ra_index_query()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+los_ra_index_summary_tbl(
+  .data = los_ra_index_query()
+)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

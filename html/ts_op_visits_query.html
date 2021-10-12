@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Time Series - Outpatient Visits Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ts_op_visits_query {LICHospitalR}"><tr><td>ts_op_visits_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Time Series - Outpatient Visits Query</h2>
+
+<h3>Description</h3>
+
+<p>This query gets the data necessary to do a time series analysis on outpatient visits.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ts_op_visits_query()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS, uses both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li>
+<li><p> The start date is set to 2001-01-01
+</p>
+</li>
+<li><p> The end date is set dynamically to the end of the previous month.
+</p>
+</li>
+<li><p> It gets data from smsdss.BMH_PLM_PtAcct_V
+</p>
+</li>
+<li><p> The data comes back aggregated by day, using the discharge date which is the same
+as the arrival date. The columns that are returned are:
+</p>
+</li></ul>
+
+
+<ul>
+<li><p> date_col - date is of date
+</p>
+</li>
+<li><p> value - where value count of visits that day
+</p>
+</li></ul>
+
+
+<ul>
+<li><p> This query excludes unitized and ED visits and those that start with 9
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+ts_op_visits_query()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

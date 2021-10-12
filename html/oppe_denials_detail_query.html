@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE Denials Detail Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_denials_detail_query {LICHospitalR}"><tr><td>oppe_denials_detail_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE Denials Detail Query</h2>
+
+<h3>Description</h3>
+
+<p>Get the Denials Detail data for a specified provider.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_denials_detail_query(.provider_id)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.provider_id</code></td>
+<td>
+<p>The id of the provider you want denial detial for</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS, uses both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li>
+<li><p> Has start and end dates set dynamically to look back on data to ensure it has
+gone through the coding process.
+</p>
+</li>
+<li><p> The fields that come back are:
+*
+</p>
+</li>
+<li><p> The tables that are used are:
+</p>
+
+<ul>
+<li><p> smsdss.bmh_plm_ptacct_v
+</p>
+</li>
+<li><p> smsdss.pract_dim_v
+</p>
+</li>
+<li><p> smsdss.drg_dim_v
+</p>
+</li>
+<li><p> smsdss.c_lihn_svc_line_tbl
+</p>
+</li>
+<li><p> smsdss.c_lihn_op_svc_line_tbl
+</p>
+</li>
+<li><p> BMH-3MHIS-DB.MMM_COR_BMH_LIVE.dbo.visit_view
+</p>
+</li>
+<li><p> BMH-3MHIS-DB.MMM_COR_BMH_LIVE.dbo.CTC_VISIT
+</p>
+</li>
+<li><p> BMH-3MHIS-DB.MMM_COR_BMH_LIVE.dbo.CTC_INSURANCE
+</p>
+</li>
+<li><p> BMH-3MHIS-DB.MMM_COR_BMH_LIVE.dbo.CTC_UM_Denial
+</p>
+</li>
+<li><p> BMH-3MHIS-DB.MMM_COR_BMH_LIVE.dbo.CTC_UM_APPEAL
+</p>
+</li></ul>
+
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble object
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(dplyr)
+
+oppe_denials_detail_query(.provider_id = "005892") %&gt;%
+glimpse()
+
+# If provider id is not known you can do either of the following
+# pract_dim_v_query(.name = "the providers name") and the pract_no will be
+# returned to you, or you could do the following:
+
+oppe_denials_detail_query(
+  .provider_id = pract_dim_v_query(.name = "name_here") %&gt;%
+    dplyr::pull(pract_no)
+)
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

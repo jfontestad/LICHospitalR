@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Use SQL SUBSTRING() or Excel MID() type function in R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for sql_mid {LICHospitalR}"><tr><td>sql_mid {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Use SQL SUBSTRING() or Excel MID() type function in R</h2>
+
+<h3>Description</h3>
+
+<p>Perform a SQL SUBSTRING() or Excel MID() type function on a piece of data
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sql_mid(text, start_num, num_char)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>text</code></td>
+<td>
+<p>A piece of text or data you want to take a substring/mid of</p>
+</td></tr>
+<tr valign="top"><td><code>start_num</code></td>
+<td>
+<p>Where you want to start your manipulation</p>
+</td></tr>
+<tr valign="top"><td><code>num_char</code></td>
+<td>
+<p>How many characters o fthe text you want to take</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Returns a substring of text from the substring/mid point chosen
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A substring/mid section of text
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+sql_mid("this is some text", 6, 2)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

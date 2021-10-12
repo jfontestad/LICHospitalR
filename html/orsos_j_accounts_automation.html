@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ORSOS J Accounts Automation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for orsos_j_accounts_automation {LICHospitalR}"><tr><td>orsos_j_accounts_automation {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ORSOS J Accounts Automation</h2>
+
+<h3>Description</h3>
+
+<p>This takes in data directly from the <code><a href="../../LICHospitalR/help/orsos_j_accounts_query.html">orsos_j_accounts_query()</a></code> as the
+data argument.
+</p>
+<p>The RDCOMClient Library must be called into the <code>namespace</code> first with any of the following
+</p>
+
+<ul>
+<li><p> library(RDCOMClient)
+</p>
+</li>
+<li><p> require(RDCOMClient)
+</p>
+</li>
+<li><p> if(!require(pacman)) install.packages(&quot;pacman&quot;)
+</p>
+</li>
+<li><p> pacman::p_load(&quot;RDCOMClient&quot;)
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+orsos_j_accounts_automation(.data, .delete_file = FALSE, .email)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data from <code><a href="../../LICHospitalR/help/orsos_j_accounts_query.html">orsos_j_accounts_query()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.delete_file</code></td>
+<td>
+<p>FALSE is the default, so the file will be kept, TRUE will
+delete the file after function completion</p>
+</td></tr>
+<tr valign="top"><td><code>.email</code></td>
+<td>
+<p>Provide the email address for the recipient. The email must be
+in double quotes like so: <a href="mailto:c(%22person@licommunityhospital.org;person2@licommunityhospital.org%22)">c(&quot;person@licommunityhospital.org;person2@licommunityhospital.org&quot;)</a>
+using a semi-colon if there is more than one address.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Takes in the results of <code><a href="../../LICHospitalR/help/orsos_j_accounts_query.html">orsos_j_accounts_query()</a></code> function
+</p>
+</li>
+<li><p> Asks user where to save the temporary file
+</p>
+</li>
+<li><p> Will delete file after sending if parameter is set to true
+</p>
+</li></ul>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(RDCOMClient)
+library(tidyverse)
+orsos_j_accounts_query() %&gt;%
+  orsos_j_accounts_automation(.email = "somone@email.com")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

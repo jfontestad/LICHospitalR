@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Respiratory VAE Automation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for respiratory_vae_automation {LICHospitalR}"><tr><td>respiratory_vae_automation {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Respiratory VAE Automation</h2>
+
+<h3>Description</h3>
+
+<p>This will email out the Respiratory VAE file to the email specified
+in the function. It is expected that the <code>.data</code> parameter be filled in with the
+results of the <code><a href="../../LICHospitalR/help/respiratory_vae_tbl.html">respiratory_vae_tbl()</a></code> function.
+</p>
+<p>The RDCOMClient Library must be called into the <code>namespace</code> first with any of the following
+</p>
+
+<ul>
+<li><p> library(RDCOMClient)
+</p>
+</li>
+<li><p> require(RDCOMClient)
+</p>
+</li>
+<li><p> if(!require(pacman)) install.packages(&quot;pacman&quot;)
+</p>
+</li>
+<li><p> pacman::p_load(&quot;RDCOMClient&quot;)
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+respiratory_vae_automation(.data, .delete_file = FALSE, .email)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The output from the tbl function <code><a href="../../LICHospitalR/help/respiratory_vae_tbl.html">respiratory_vae_tbl()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.delete_file</code></td>
+<td>
+<p>Default is FALSE, TRUE will delete file</p>
+</td></tr>
+<tr valign="top"><td><code>.email</code></td>
+<td>
+<p>Provide the email address for the recipient. The email must be
+in double quotes like so: <a href="mailto:c(%22person@licommunityhospital.org;person2@licommunityhospital.org%22)">c(&quot;person@licommunityhospital.org;person2@licommunityhospital.org&quot;)</a>
+using a semi-colon if there is more than one address.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Takes the output from <code><a href="../../LICHospitalR/help/respiratory_vae_tbl.html">respiratory_vae_tbl()</a></code> and saves it to
+an excel workbook using the <code><a href="../../writexl/help/write_xlsx.html">writexl::write_xlsx()</a></code> function. The file is saved
+to a location specified by the user and upon successful function completion the
+file is deleted.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(RDCOMClient)
+respiratory_vae_query() %&gt;%
+  respiratory_vae_tbl() %&gt;%
+  respiratory_vae_automation()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

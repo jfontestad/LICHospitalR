@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Readmit Psych To Psych Tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for readmit_psy_to_psy_tbl {LICHospitalR}"><tr><td>readmit_psy_to_psy_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Readmit Psych To Psych Tibble</h2>
+
+<h3>Description</h3>
+
+<p>This function will take the results of the <code><a href="../../LICHospitalR/help/readmit_psy_to_psy_query.html">readmit_psy_to_psy_query()</a></code> and
+ensure that the results are in a <code>tibble</code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+readmit_psy_to_psy_tbl(.data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data you want to pass, namely <code><a href="../../LICHospitalR/help/readmit_psy_to_psy_query.html">readmit_psy_to_psy_query()</a></code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Takes in the data from <code><a href="../../LICHospitalR/help/readmit_psy_to_psy_query.html">readmit_psy_to_psy_query()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+readmit_psy_to_psy_query() %&gt;%
+  readmit_psy_to_psy_tbl()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

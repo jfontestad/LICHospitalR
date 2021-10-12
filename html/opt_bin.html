@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get the optimal bin width for a histogram given a data set,...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for opt_bin {LICHospitalR}"><tr><td>opt_bin {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get the optimal bin width for a histogram given a data set, its value and
+the desired amount of bins</h2>
+
+<h3>Description</h3>
+
+<p>Gives the optimal bindwidth for a histogram given a data set, it's value and
+the desired amoutn of bins
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+opt_bin(.data, .value_col, .iters = 30)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data set in question</p>
+</td></tr>
+<tr valign="top"><td><code>.value_col</code></td>
+<td>
+<p>The column that holds the values</p>
+</td></tr>
+<tr valign="top"><td><code>.iters</code></td>
+<td>
+<p>How many times the cost function loop should run</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Modified from Hideaki Shimazaki
+Department of Physics, Kyoto University
+shimazaki at ton.scphys.kyoto-u.ac.jp
+Feel free to modify/distribute this program.
+</p>
+
+<ul>
+<li><p> Supply a data.frame/tibble with a value column. from this an optimal binwidth
+will be computed for the amount of binds desired
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble of histogram breakpoints
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(dplyr)
+library(tibble)
+library(purrr)
+
+df_tbl &lt;- rnorm(n = 1000, mean = 0, sd = 1)
+df_tbl &lt;- df_tbl %&gt;%
+  as_tibble() %&gt;%
+  set_names("value")
+
+df_tbl %&gt;%
+  opt_bin(
+    .value_col = value
+    , .iters = 100
+  )
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

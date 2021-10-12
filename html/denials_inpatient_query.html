@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Denials by Inpatients</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for denials_inpatient_query {LICHospitalR}"><tr><td>denials_inpatient_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Denials by Inpatients</h2>
+
+<h3>Description</h3>
+
+<p>Get denials for inpatient visits from smsdss.c_Softmed_Denials_Detail_v and
+smsmir.mir_pay where the left 4 digits of the pay code are '0974'. The data
+starts at January 1st, 2013
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+denials_inpatient_query()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Uses the <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code> functions
+</p>
+</li>
+<li><p> Queries:
+</p>
+</li></ul>
+
+
+<ol>
+<li><p> smsdss.c_Softmed_Denials_Detail_v
+</p>
+</li>
+<li><p> smsmir.mir_pay
+</p>
+</li></ol>
+
+
+<ul>
+<li><p> Includes the columns ptno_Num, bill_no, discharge_date and dollars_denied
+</p>
+</li>
+<li><p> This function is intended to be used with <code><a href="../../timetk/help/filter_by_time.html">timetk::filter_by_time()</a></code> if data
+needs to be filtered by time. The .date_var argument should be set equal to
+discharge_date
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(timetk)
+denials_inpatient_query()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

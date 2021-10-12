@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Time Series - Inpatient Census/LOS by Day Tibble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ts_ip_census_los_daily_tbl {LICHospitalR}"><tr><td>ts_ip_census_los_daily_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Time Series - Inpatient Census/LOS by Day Tibble</h2>
+
+<h3>Description</h3>
+
+<p>Sometimes it is important to know what the census was on any given day, or what
+the average length of stay is on any given day, including for those patients
+that are not yet discharged. This can be easily achieved. This will return one
+record for every account so the data will still need to be summarised.
+</p>
+<p>For those accounts that are not yet discharged the date column that returns will
+be set to today (the day the function is run.)
+</p>
+<p><strong>This function can take a little bit of time to run while the join comparison runs.</strong>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ts_ip_census_los_daily_tbl(.data, .keep_nulls_only = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data passed from from <code><a href="../../LICHospitalR/help/ts_ip_census_los_daily_query.html">ts_ip_census_los_daily_query()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.keep_nulls_only</code></td>
+<td>
+<p>A boolean that will keep only those records that have
+a NULL discharge date, meaning the patient is currently admitted. The default
+is FALSE which brings back all records.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires the data from the <code><a href="../../LICHospitalR/help/ts_ip_census_los_daily_query.html">ts_ip_census_los_daily_query()</a></code>
+</p>
+</li>
+<li><p> Takes a single boolean parameter
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble object
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+ts_ip_census_los_daily_query() %&gt;%
+  ts_ip_census_los_daily_tbl()
+
+ts_ip_census_los_daily_query() %&gt;%
+  ts_ip_census_los_daily_tbl(.keep_nulls_only = TRUE)
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

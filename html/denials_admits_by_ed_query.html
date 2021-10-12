@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Denials Admits by ED</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for denials_admits_by_ed_query {LICHospitalR}"><tr><td>denials_admits_by_ed_query {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Denials Admits by ED</h2>
+
+<h3>Description</h3>
+
+<p>This query gets the admit counts by ed provider
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+denials_admits_by_ed_query(.name)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.name</code></td>
+<td>
+<p>The name of the provider you want returned</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Queries DSS the linked WellSoft Report DB
+</p>
+</li>
+<li><p> Uses the <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code> functions
+</p>
+</li>
+<li><p> Does not need an argument but one can be passes til filter on name if desired,
+although this should be done as a dplyr::filter() so this funcationality
+may be taken away in the future
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+denials_admits_by_ed_query()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

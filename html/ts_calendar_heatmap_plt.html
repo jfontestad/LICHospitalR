@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Time Series Calendar Heatmap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ts_calendar_heatmap_plt {LICHospitalR}"><tr><td>ts_calendar_heatmap_plt {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Time Series Calendar Heatmap</h2>
+
+<h3>Description</h3>
+
+<p>Takes in data that has been aggregated to the day level and makes a calendar
+heatmap.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ts_calendar_heatmap_plt(
+  .data,
+  .date_col,
+  .value_col,
+  .low = "red",
+  .high = "green",
+  .plt_title = "",
+  .interactive = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The time-series data with a date column and value column.</p>
+</td></tr>
+<tr valign="top"><td><code>.date_col</code></td>
+<td>
+<p>The column that has the datetime values</p>
+</td></tr>
+<tr valign="top"><td><code>.value_col</code></td>
+<td>
+<p>The column that has the values</p>
+</td></tr>
+<tr valign="top"><td><code>.low</code></td>
+<td>
+<p>The color for the low value, must be quoted like &quot;red&quot;. The default is &quot;red&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>.high</code></td>
+<td>
+<p>The color for the high value, must be quoted like &quot;green&quot;. The default is &quot;green&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>.plt_title</code></td>
+<td>
+<p>The title of the plot</p>
+</td></tr>
+<tr valign="top"><td><code>.interactive</code></td>
+<td>
+<p>Default is TRUE to get an interactive plot using <code><a href="../../plotly/help/ggplotly.html">plotly::ggplotly()</a></code>.
+It can be set to FALSE to get a ggplot plot.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data provided must have been aggregated to the day level, if not funky
+output could result and it is possible nothing will be output but errors.
+There must be a date column and a value column, those are the only items
+required for this function to work.
+</p>
+<p>This function is intentionally inflexible, it complains more and does less in
+order to force the user to supply a clean data-set.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A ggplot2 plot or if interactive a plotly plot
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(LICHospitalR)
+library(tidyverse)
+library(timetk)
+library(lubridate)
+library(zoo)
+library(scales)
+
+data_tbl &lt;- ts_ed_arrivals_query() %&gt;%
+  ts_ed_arrivals_tbl(.date_col = date_col, .by_time = "day") %&gt;%
+  filter_by_time(.date_var = date_col, .start_date = "2021") %&gt;%
+  set_names("date_col","value")
+
+ts_calendar_heatmap_plt(
+  .data        = data_tbl
+  , .date_col  = date_col
+  , .value_col = value
+)
+
+ts_calendar_heatmap_plt(
+  .data          = data_tbl
+  , .date_col    = date_col
+  , .value_col   = value
+  , .interactive = FALSE
+)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

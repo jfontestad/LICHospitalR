@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Automatically Geocode Addresses</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for geocode_discharges_automation {LICHospitalR}"><tr><td>geocode_discharges_automation {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Automatically Geocode Addresses</h2>
+
+<h3>Description</h3>
+
+<p>Get discharged accounts from DSS and geocode them with Nominatim OpenStreet Maps
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+geocode_discharges_automation()
+</pre>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Requires a connection to DSS, uses both <code><a href="../../LICHospitalR/help/db_connect.html">db_connect()</a></code> and <code><a href="../../LICHospitalR/help/db_disconnect.html">db_disconnect()</a></code>
+</p>
+</li>
+<li><p> Uses the <code><a href="../../LICHospitalR/help/geocode_discharges_query.html">geocode_discharges_query()</a></code> internally.
+</p>
+</li>
+<li><p> Saves a file to where you specify for accounts that could not be automatically geocoded
+</p>
+</li>
+<li><p> This can be run numerous times a day since the records are inserted into a table after
+geocoding and lookedup to make sure they do not already exist there.
+</p>
+</li>
+<li><p> This will look back at discharges starting with a discharge date of six months prior
+to the SQL GETEDATE() function
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

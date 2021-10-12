@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: K-Means tidy Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for kmeans_tidy {LICHospitalR}"><tr><td>kmeans_tidy {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>K-Means tidy Functions</h2>
+
+<h3>Description</h3>
+
+<p>K-Means tidy functions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+kmeans_tidy(.kmeans_obj, .tidy_type = "tidy")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.kmeans_obj</code></td>
+<td>
+<p>A <code><a href="../../stats/help/kmeans.html">stats::kmeans()</a></code> object</p>
+</td></tr>
+<tr valign="top"><td><code>.tidy_type</code></td>
+<td>
+<p>&quot;tidy&quot;,&quot;glance&quot;, or &quot;augment&quot;</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Takes in a k-means object and returns one of the items asked
+for. Either the <code><a href="../../broom/help/reexports.html">broom::tidy()</a></code> <code><a href="../../broom/help/reexports.html">broom::glance()</a></code> or <code><a href="../../broom/help/reexports.html">broom::augment()</a></code>. The
+function defaults to <code><a href="../../broom/help/reexports.html">broom::tidy()</a></code>
+</p>
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl() %&gt;%
+  oppe_cpoe_user_item_tbl() %&gt;%
+  oppe_cpoe_kmeans() %&gt;%
+  kmeans_tidy()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

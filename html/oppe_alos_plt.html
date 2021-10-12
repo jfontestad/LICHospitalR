@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE ALOS Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_alos_plt {LICHospitalR}"><tr><td>oppe_alos_plt {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE ALOS Plots</h2>
+
+<h3>Description</h3>
+
+<p>Get plots for a single providers length of stay data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_alos_plt(.data, .date_col, .by_time = "month")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that you would pass from <code><a href="../../LICHospitalR/help/oppe_alos_tbl.html">oppe_alos_tbl()</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>.date_col</code></td>
+<td>
+<p>The column holding the date value</p>
+</td></tr>
+<tr valign="top"><td><code>.by_time</code></td>
+<td>
+<p>How you want the data time aggregated, the default is <strong>&quot;month&quot;</strong></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Takes data in from the <code><a href="../../LICHospitalR/help/oppe_alos_tbl.html">oppe_alos_tbl()</a></code> function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A patchwork time series plot
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+oppe_alos_query() %&gt;%
+  oppe_alos_tbl(.provider_id = "017236") %&gt;%
+  oppe_alos_plt(.date_col = dsch_date)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

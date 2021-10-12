@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE CPOE Cluster Trends Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_cpoe_cluster_trends_tbl {LICHospitalR}"><tr><td>oppe_cpoe_cluster_trends_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE CPOE Cluster Trends Table</h2>
+
+<h3>Description</h3>
+
+<p>This function takes the data from the <code><a href="../../LICHospitalR/help/oppe_cpoe_trend_tbl.html">oppe_cpoe_trend_tbl()</a></code> function
+and creates from that data along with the umap_kmeans_cluster_results_tbl from the
+<code><a href="../../LICHospitalR/help/oppe_cpoe_umap.html">oppe_cpoe_umap()</a></code> function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_cpoe_cluster_trends_tbl(.data, .umap_data, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that needs to be passed to the function from the <code><a href="../../LICHospitalR/help/oppe_cpoe_trend_tbl.html">oppe_cpoe_trend_tbl()</a></code>
+function</p>
+</td></tr>
+<tr valign="top"><td><code>.umap_data</code></td>
+<td>
+<p>The umap_kmeans_cluster_results_tbl from the <code><a href="../../LICHospitalR/help/oppe_cpoe_umap.html">oppe_cpoe_umap()</a></code>
+function</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Any extra columns you want passed to the function. By default the following
+are selected:
+</p>
+
+<ul>
+<li><p> .cluster
+</p>
+</li>
+<li><p> order_type
+</p>
+</li></ul>
+
+<p>You can choose the from the following as extra:
+</p>
+
+<ul>
+<li><p> hospitalist_np_pa_flag
+</p>
+</li>
+<li><p> spclty_desc
+</p>
+</li></ul>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Requires data from the <code><a href="../../LICHospitalR/help/oppe_cpoe_trend_tbl.html">oppe_cpoe_trend_tbl()</a></code> and <code><a href="../../LICHospitalR/help/oppe_cpoe_umap.html">oppe_cpoe_umap()</a></code>
+functions. This data is later used to show how a particular provider stacks up
+against others in the same cluster.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+q &lt;- oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl()
+
+trend_tbl &lt;- q %&gt;%
+  oppe_cpoe_trend_tbl()
+
+ui_tbl &lt;- q %&gt;%
+  oppe_cpoe_user_item_tbl()
+
+kmm_tbl &lt;- ui_tbl %&gt;%
+  kmeans_mapped_tbl()
+
+umap_obj &lt;- oppe_cpoe_umap(
+  .data = ui_tbl
+  , .kmeans_map_tbl = kmm_tbl
+  , .k_cluster = 3
+)
+
+oppe_cpoe_cluster_trends_tbl(trend_tbl, umap_obj)
+oppe_cpoe_cluster_trends_tbl(trend_tbl, umap_obj, hospitalist_np_pa_flag)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

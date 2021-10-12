@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: OPPE CPOE K-Means</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for oppe_cpoe_user_item_tbl {LICHospitalR}"><tr><td>oppe_cpoe_user_item_tbl {LICHospitalR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>OPPE CPOE K-Means</h2>
+
+<h3>Description</h3>
+
+<p>Takes data from the <code><a href="../../LICHospitalR/help/oppe_cpoe_tbl.html">oppe_cpoe_tbl()</a></code> and transforms it into an aggregated/normalized
+user-item tibble of order proportions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+oppe_cpoe_user_item_tbl(.data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>The data that is passed from <code><a href="../../LICHospitalR/help/oppe_cpoe_tbl.html">oppe_cpoe_tbl()</a></code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function requires that the <code><a href="../../LICHospitalR/help/oppe_cpoe_query.html">oppe_cpoe_query()</a></code> and <code><a href="../../LICHospitalR/help/oppe_cpoe_tbl.html">oppe_cpoe_tbl()</a></code>
+functions be run and takes the output of that work flow as its input. This function
+should be used before using a k-mean model. This is commonly referred to as a user_item
+matrix because &quot;users&quot; (e.g. providers) tend to be on the rows and &quot;tems&quot; (e.g. orders)
+on the columns.
+</p>
+<p>At present this function only selects the following types of orders:
+</p>
+
+<ul>
+<li><p> Written
+</p>
+</li>
+<li><p> Verbal
+</p>
+</li>
+<li><p> Telephone, and
+</p>
+</li>
+<li><p> CPOE
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A aggregated/normalized user item tibble
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Steven P. Sanderson II, MPH
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+oppe_cpoe_query() %&gt;%
+  oppe_cpoe_tbl() %&gt;%
+  oppe_cpoe_user_item_tbl()
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>LICHospitalR</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
