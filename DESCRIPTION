@@ -13,11 +13,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: magrittr, rlang (>= 0.1.2), timetk, lubridate, DBI, odbc,
         janitor, stringr, dplyr, ggplot2, tibble, stats, patchwork,
-        scales, tmaptools, writexl, RDCOMClient, readr, xlsx, healthyR,
+        scales, tmaptools, writexl, readr, xlsx, healthyR,
         sqldf, cowplot, stringi
 Suggests: knitr, rmarkdown, roxygen2, data.table, tidyquant, forcats,
         tidyr, purrr, healthyR.ts, broom, uwot, ggrepel, zoo, plotly,
-        xts, healthyR.data
+        xts, healthyR.data, RDCOMClient
 VignetteBuilder: knitr
 Author: Steven Sanderson [aut, cre],
   Steven Sanderson [cph]
